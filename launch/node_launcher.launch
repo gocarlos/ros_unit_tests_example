@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<launch>
+  <node pkg="ros_unit_tests_example" name="my_main_node" type="my_main_node"/>
+  <test pkg="ros_unit_tests_example" test-name="my_unit_test" type="my_unit_test"/>
+</launch>

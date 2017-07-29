@@ -1,0 +1,52 @@
+dist:             trusty
+sudo:             required
+language:
+  - cpp
+compiler:
+  - gcc
+
+env:
+  global:
+    - SOURCE_PATH=$(pwd)
+    - PYTHONPATH=$PYTHONPATH:/usr/lib/python2.7/dist-packages:/usr/local/lib/python2.7/dist-packages
+    
+before_install:
+  - sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
+  - sudo apt-key adv --keyserver hkp://ha.pool.sks-keyservers.net:80 --recv-key 421C365BD9FF1F717815A3895523BAEEB01FA116
+  - sudo apt-get update
+  - sudo apt-get install ros-indigo-ros-base
+  - sudo rosdep init
+  - rosdep update
+  - source /opt/ros/indigo/setup.bash
+
+install:
+  # Create a workspace.
+  - mkdir -p ~/catkin_ws/src
+  - cd ~/catkin_ws/src
+  - catkin_init_workspace
+  - cd ~/catkin_ws
+  - catkin_make
+  - source devel/setup.bash
+
+  # Symlink the ros package to the catkin workspace.
+  - cd ~/catkin_ws/src
+  - ln -s $SOURCE_PATH .
+
+  # Export CC and CXX to tell cmake which compiler to use
+  # - export CC=/usr/bin/gcc-7
+  # - export CXX=/usr/bin/g++-7
+  # Check versions of gcc, g++ and cmake
+  - cmake --version
+  - $CC --version
+  - $CXX --version
+
+script:
+  - source /opt/ros/indigo/setup.bash
+  - cd ~/catkin_ws
+  - catkin_make
+  # Run the tests, ensuring the path is set correctly.
+  - source devel/setup.bash
+  # This command will return 0 even if a test fails.
+  - catkin_make run_tests
+  # This second command will return non-zero if a test fails.
+  - catkin_test_results
