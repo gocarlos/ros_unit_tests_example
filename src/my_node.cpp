@@ -18,7 +18,7 @@ int main(int argc, char **argv) {
   ros::NodeHandle n;
 
   sleep(2);
-  std::cout << "Hello World, I'm a ros node, I could do something...!" << std::endl;
+  std::cout << "Hello World, I'm a ROS node, I could do something..." << std::endl;
 
   return 0;
 }
