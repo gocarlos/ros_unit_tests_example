@@ -21,4 +21,4 @@ $ catkin_make run_test
   + ROs package showing the usage of rostest (aka gtest).
 
 
-If you like this project fork it or star it. If you have some troubles compiling it, contact me --> see my website.
+If you like this project fork it or star it. If you have some troubles compiling it, contact me --> see [my website](http://www.carlosgomes.ch).
