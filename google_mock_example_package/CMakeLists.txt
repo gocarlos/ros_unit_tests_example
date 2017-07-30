@@ -1,5 +1,5 @@
 cmake_minimum_required (VERSION 3.1)
-project (ros_unit_tests_example)
+project (google_mock_example_package)
 
 # Use C++14 : cmake >= 3.1
 set(CMAKE_CXX_STANDARD 14)

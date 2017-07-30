@@ -6,8 +6,10 @@
 
 ## USAGE - RUN
 
-* $ cd ~/catkin_ws/src (go to source directory of your catkin workspace)
-* $ git clone https://github.com/gocarlos/ros_unit_tests_example.git
-* $ cd ~/catkin_ws/
-* $ catkin_make
-* $ catkin_make run_test
+```bash
+$ cd ~/catkin_ws/src
+$ git clone https://github.com/gocarlos/ros_unit_tests_example.git
+$ cd ~/catkin_ws/
+$ catkin_make
+$ catkin_make run_test
+```
