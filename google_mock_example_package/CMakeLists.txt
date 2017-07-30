@@ -29,17 +29,16 @@ include_directories(
 )
 
 # An example of a ROS node.
-add_executable (my_main_node src/my_node.cpp)
-target_link_libraries(my_main_node ${catkin_LIBRARIES})
+add_executable (my_simple_node src/my_node.cpp)
+target_link_libraries(my_simple_node ${catkin_LIBRARIES})
 
 ##############
 # Unit Tests
 ##############
 
 if(CATKIN_ENABLE_TESTING)
-  message("\n\nGoing to build the tests!\n\n")
+  # message("\n\nGoing to build the tests!\n\n")
   find_package(rostest REQUIRED)
-  add_rostest_gtest(my_unit_test launch/node_launcher.launch test/MyClass_test.cpp)
-  # catkin_add_gtest(my_unit_test test/MyClass_test.cpp)
-  target_link_libraries(my_unit_test ${catkin_LIBRARIES})
+  add_rostest_gtest(my_simple_unit_test launch/node_launcher.launch test/MyClass_test.cpp)
+  target_link_libraries(my_simple_unit_test ${catkin_LIBRARIES})
 endif()
